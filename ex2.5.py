@@ -1,7 +1,7 @@
 import json
 import timeit
 
-def change_size(data, num):
+def change_size(num):
     for data in json_object:
         data['payload']['size'] = num
 
@@ -12,7 +12,7 @@ if __name__ == '__main__':
     json_object = json.loads(file_contents)
     
     # change size field to 42
-    elapsed_time = timeit.timeit(lambda: change_size(json_object, 42), number=10)
+    elapsed_time = timeit.timeit(lambda: change_size(42), number=10)
 
     # reverse json and write to output file
     reversed_json_object = list(reversed(json_object))
