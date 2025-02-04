@@ -21,3 +21,7 @@ if __name__ == '__main__':
 
     avg_time = elapsed_time / 10
     print("Average time to modify size in each record:", avg_time)
+
+    # Close opened files
+    in_file.close()
+    out_file.close()
