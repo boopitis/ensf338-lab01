@@ -19,7 +19,7 @@ for country in data:
     else:
         belowThresh.append(internetUseRate)
 
-plt.hist(belowThresh, bins=20, color='blue', edgecolor='black')
+plt.hist(belowThresh, bins='auto', color='blue', edgecolor='black')
 plt.title('Internet Usage (Income < 10,000)')
 plt.xlabel('Internet Usage (%)')
 plt.ylabel('Number of Countries')
