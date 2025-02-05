@@ -1,23 +1,26 @@
-import timeit
+
 
 def countVowel(content):
     vowels = "aeiouy"
-    index = 0
     numVowel = 0
     numWord = 0
-    for i, l in enumerate(content):
-        if "CHAPTER 1. Loomings." in l:
-            index = i
-            
-            
-    for ind, line in enumerate(content):
-        if(ind >= index):
-            lower = line.lower()
-            numVowel += sum(lower.count(vowel) for vowel in vowels);
-            numWord += len(content[ind].split())
+    start_counting = False
+    
+    for line in content:
+        if not (start_counting):
+            if("CHAPTER 1. Loomings." in line):
+                start_counting = True
+            continue
+        
+        lowerVer = line.lower()
+        numVowel += sum(lowerVer.count(vowel) for vowel in vowels)
+        numWord += len(line.split())
 
-    avg = numVowel / numWord
-    return avg
+    if numWord == 0:
+        return 0
+    
+    avgVowel = numVowel / numWord
+    return avgVowel
 
 def printTxt(average):
     print("There are an average number of", average, "vowels per word in the text.")
